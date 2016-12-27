@@ -1,5 +1,5 @@
 FROM lsiobase/alpine
-MAINTAINER sparklyballs
+MAINTAINER 2400bod
 
 # set version label
 ARG BUILD_DATE
@@ -68,7 +68,7 @@ apk add --no-cache \
  make install && \
 
 # compile minetestserver
- git clone --depth 1 https://github.com/minetest/minetest.git /tmp/minetest && \
+ git clone --depth 1 https://github.com/2400bod/minetest.git /tmp/minetest && \
  cp /tmp/minetest//minetest.conf.example /defaults/minetest.conf && \
  cd /tmp/minetest && \
  cmake . \
@@ -95,7 +95,7 @@ apk add --no-cache \
  cp -pr  /usr/share/minetest/games/* /defaults/games/ && \
 
 # fetch additional game from git
- git clone --depth 1 https://github.com/minetest/minetest_game.git /defaults/games/minetest && \
+ git clone --depth 1 https://github.com/2400bod/minetest_game.git /defaults/games/minetest && \
 
 # cleanup
  apk del --purge \
