@@ -1,19 +1,21 @@
 #!/usr/bin/with-contenv bash
 
+WORLD=${WORLD:-world}
+
 # make our folders
 mkdir -p \
 	/config/.minetest/games \
 	/config/.minetest/mods \
-	/config/.minetest/main-config
+	/config/.minetest/main-config \
+	/config/.minetest/worlds
 
-if [ ! -f "/config/.minetest/main-config/minetest.conf" ]; then
-cp /defaults/minetest.conf /config/.minetest/main-config/minetest.conf
+if [ ! -f "/config/.minetest/main-config/$WORLD.conf" ]; then
+	cp /defaults/minetest.conf /config/.minetest/main-config/$WORLD.conf
 fi
 
 if [ ! -d "/config/.minetest/games/minimal" ]; then
-cp -pr /defaults/games/* /config/.minetest/games/
+	cp -pr /defaults/games/* /config/.minetest/games/
 fi
 
 # permissions
-chown -R abc:abc \
-	/config
+chown -R abc:abc /config

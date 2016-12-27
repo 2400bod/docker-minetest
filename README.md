@@ -25,8 +25,9 @@ docker create \
   --name=minetest \
   -v <path to data>:/config/.minetest \
   -e PGID=<gid> -e PUID=<uid>  \
+  -e WORLD=<worldname> \
   -p 30000:30000/udp
-  linuxserver/minetest
+  2400bod/minetest
 ```
 
 ## Parameters
@@ -42,6 +43,7 @@ http://192.168.x.x:8080 would show you what's running INSIDE the container on po
 * `-v /config/.minetest` - where minetest stores config files and maps etc.
 * `-e PGID` for GroupID - see below for explanation
 * `-e PUID` for UserID - see below for explanation
+* `-e WORLD` for world name, 'world' by default
 
 It is based on alpine linux with s6 overlay, for shell access whilst the container is running do `docker exec -it minetest /bin/bash`.
 
@@ -60,6 +62,16 @@ In this instance `PUID=1001` and `PGID=1001`. To find yours use `id user` as bel
 
 You can find the world maps, mods folder and config files in /config/.minetest.
 
+## Example
+
+Run many instances
+
+```
+  docker create --name=myserver -v /var/minetest:/config/.minetest -e WORLD=myserver -p 30000:30000/udp 2400bod/minetest
+  docker create --name=myserver-dev -v /var/minetest:/config/.minetest -e WORLD=myserver-dev -p 30001:30000/udp 2400bod/minetest
+  docker create --name=other-server -v /var/minetest:/config/.minetest -e WORLD=othser-server -p 30002:30000/udp 2400bod/minetest
+```
+
 ## Info
 
 * Shell access whilst the container is running: `docker exec -it minetest /bin/bash`
@@ -75,6 +87,7 @@ You can find the world maps, mods folder and config files in /config/.minetest.
 
 ## Versions
 
++ **27.12.2016:** Add run for many instances.
 + **25.11.2016:** Rebase to alpine linux, move to main repo.
 + **27.02.2016:** Bump to latest version.
 + **19.02.2016:** Change port to UDP, thanks to slashopt for pointing this out.

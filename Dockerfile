@@ -90,18 +90,15 @@ apk add --no-cache \
  make install && \
 
 # copy games to temporary folder
- mkdir -p \
-	/defaults/games && \
+ mkdir -p /defaults/games && \
  cp -pr  /usr/share/minetest/games/* /defaults/games/ && \
 
 # fetch additional game from git
  git clone --depth 1 https://github.com/2400bod/minetest_game.git /defaults/games/minetest && \
 
 # cleanup
- apk del --purge \
-	build-dependencies && \
- rm -rf \
-	/tmp/*
+ apk del --purge build-dependencies && \
+ rm -rf /tmp/*
 
 # add local files
 COPY root /
