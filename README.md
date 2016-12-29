@@ -56,7 +56,7 @@ Run many instances
 ```
   docker create --name=myserver -v /var/minetest:/config/.minetest -e WORLD=myserver -p 30000:30000/udp 2400bod/minetest
   docker create --name=myserver-dev -v /var/minetest:/config/.minetest -e WORLD=myserver-dev -p 30001:30000/udp 2400bod/minetest
-  docker create --name=other-server -v /var/minetest:/config/.minetest -e WORLD=othser-server -p 30002:30000/udp 2400bod/minetest
+  docker create --name=other-server -v /var/minetest:/config/.minetest -e WORLD=other-server -p 30002:30000/udp 2400bod/minetest
 ```
 
 ## Info
