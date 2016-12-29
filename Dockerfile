@@ -1,11 +1,6 @@
 FROM lsiobase/alpine
 MAINTAINER 2400bod
 
-# set version label
-ARG BUILD_DATE
-ARG VERSION
-LABEL build_version="Linuxserver.io version:- ${VERSION} Build-date:- ${BUILD_DATE}"
-
 # environment variables
 ENV HOME="/config" \
 MINETEST_SUBGAME_PATH="/config/.minetest/games
@@ -69,7 +64,7 @@ apk add --no-cache \
 
 # compile minetestserver
  git clone --depth 1 https://github.com/2400bod/minetest.git /tmp/minetest && \
- cp /tmp/minetest//minetest.conf.example /defaults/minetest.conf && \
+ cp /tmp/minetest/minetest.conf.example /defaults/minetest.conf && \
  cd /tmp/minetest && \
  cmake . \
 	-DBUILD_CLIENT=0 \
