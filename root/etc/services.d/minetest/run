@@ -4,4 +4,5 @@ WORLD=${WORLD:-world}
 
 exec \
 	s6-setuidgid abc minetestserver --world /config/.minetest/worlds/$WORLD \
-	--config /config/.minetest/main-config/$WORLD.conf --port 30000
+	--config /config/.minetest/main-config/$WORLD.conf --port 30000 \
+	--logfile /config/.minetest/$WORLD.log

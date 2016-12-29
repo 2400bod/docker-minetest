@@ -1,20 +1,7 @@
-[linuxserverurl]: https://linuxserver.io
-[forumurl]: https://forum.linuxserver.io
-[ircurl]: https://www.linuxserver.io/irc/
-[podcasturl]: https://www.linuxserver.io/podcast/
-
-[![linuxserver.io](https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/linuxserver_medium.png)][linuxserverurl]
-
-The [LinuxServer.io][linuxserverurl] team brings you another container release featuring easy user mapping and community support. Find us for support at:
-* [forum.linuxserver.io][forumurl]
-* [IRC][ircurl] on freenode at `#linuxserver.io`
-* [Podcast][podcasturl] covers everything to do with getting the most from your Linux Server plus a focus on all things Docker and containerisation!
-
-# linuxserver/minetest
-[![](https://images.microbadger.com/badges/version/linuxserver/minetest.svg)](https://microbadger.com/images/linuxserver/minetest "Get your own version badge on microbadger.com")[![](https://images.microbadger.com/badges/image/linuxserver/minetest.svg)](http://microbadger.com/images/linuxserver/minetest "Get your own image badge on microbadger.com")[![Docker Pulls](https://img.shields.io/docker/pulls/linuxserver/minetest.svg)][hub][![Docker Stars](https://img.shields.io/docker/stars/linuxserver/minetest.svg)][hub][![Build Status](http://jenkins.linuxserver.io:8080/buildStatus/icon?job=Dockers/LinuxServer.io/linuxserver-minetest)](http://jenkins.linuxserver.io:8080/job/Dockers/job/LinuxServer.io/job/linuxserver-minetest/)
-[hub]: https://hub.docker.com/r/linuxserver/minetest/
+# 2400bod/minetest
 
 [Minetest][mineurl] (server) is a near-infinite-world block sandbox game and a game engine, inspired by InfiniMiner, Minecraft, and the like.
+Fork https://hub.docker.com/r/linuxserver/minetest/
 
 [![minetest](https://raw.githubusercontent.com/linuxserver/beta-templates/master/lsiodev/img/minetest-icon.png)][mineurl]
 [mineurl]: http://www.minetest.net/
@@ -77,17 +64,10 @@ Run many instances
 * Shell access whilst the container is running: `docker exec -it minetest /bin/bash`
 * To monitor the logs of the container in realtime: `docker logs -f minetest`
 
-* container version number 
-
-`docker inspect -f '{{ index .Config.Labels "build_version" }}' minetest`
-
-* image version number
-
-`docker inspect -f '{{ index .Config.Labels "build_version" }}' linuxserver/minetest`
-
 ## Versions
 
-+ **27.12.2016:** Add run for many instances.
++ **29.12.2016:** Add running many instances.
++ **27.12.2016:** Fork from linuxserver/minetest
 + **25.11.2016:** Rebase to alpine linux, move to main repo.
 + **27.02.2016:** Bump to latest version.
 + **19.02.2016:** Change port to UDP, thanks to slashopt for pointing this out.
